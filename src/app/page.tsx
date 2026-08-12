@@ -1,52 +1,53 @@
 import Image from "next/image";
-import Blog from "@/components/blog";
-import Services from "@/components/clients";
-import Footer from "@/components/footer";
-import Hero from "@/components/hero";
-import Navbar from "@/components/navbar";
-import Stats from "@/components/stats";
-import Testimonial from "@/components/testimonial";
+import Blog from "@/components/sections/blog";
+import Clients from "@/components/sections/clients";
+import Footer from "@/components/sections/footer";
+import Hero from "@/components/sections/hero";
+import Navbar from "@/components/sections/navbar";
+import Stats from "@/components/sections/stats";
+import Testimonial from "@/components/sections/testimonial";
+import { Button } from "@/components/ui/button";
+import { SectionHeading } from "@/components/ui/section-heading";
 
-const copy =
+const COPY =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta.";
 
 function InfoBlock({
   image,
+  alt,
   title,
+  id,
   flip = false,
 }: {
   image: string;
+  alt: string;
   title: string;
+  id?: string;
   flip?: boolean;
 }) {
   return (
-    <section id={flip ? "feature" : ""} className="px-5 py-16 sm:px-8">
-      <div
-        className={`mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2 ${flip ? "" : ""}`}
-      >
+    <section id={id} className="px-5 py-16 sm:px-8">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         <div className={flip ? "md:order-2" : ""}>
           <Image
             src={image}
-            alt="Nexcent feature illustration"
+            alt={alt}
             width={480}
             height={360}
             className="mx-auto h-auto w-full max-w-sm"
           />
         </div>
         <div className={flip ? "md:order-1" : ""}>
-          <h2 className="max-w-md text-3xl font-semibold leading-tight text-[#4d4d4d]">
+          <h2 className="max-w-md text-3xl font-semibold leading-tight text-brand-dark">
             {title}
           </h2>
-          <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#717171]">
-            {copy} Nullam mattis tristique iaculis. Nullam pulvinar sit amet
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-brand-grey">
+            {COPY} Nullam mattis tristique iaculis. Nullam pulvinar sit amet
             risus pretium auctor.
           </p>
-          <a
-            href="#"
-            className="mt-7 inline-block rounded bg-[#4caf4f] px-6 py-3 text-sm text-white"
-          >
+          <Button href="#" className="mt-7">
             Learn More
-          </a>
+          </Button>
         </div>
       </div>
     </section>
@@ -55,34 +56,39 @@ function InfoBlock({
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-[#263238]">
+    <main className="min-h-screen bg-white text-brand-ink">
       <Navbar />
       <Hero />
-      <Services />
+      <Clients />
       <InfoBlock
-        image="/content.png"
+        image="/images/imageContent1.png"
+        alt="Nexcent community management illustration"
         title="The unseen of spending three years at Pixelgrade"
       />
       <Stats />
       <InfoBlock
-        image="/content2.png"
+        id="feature"
+        image="/images/imageContent2.png"
+        alt="Nexcent site footer design illustration"
         title="How to design your site footer like we did"
         flip
       />
       <Testimonial />
       <Blog />
-      <section className="bg-[#f5f7fa] px-5 py-16 text-center sm:px-8">
-        <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-tight text-[#263238] sm:text-5xl">
-          Pellentesque suscipit
-          <br />
-          fringilla libero eu.
-        </h2>
-        <a
-          href="#"
-          className="mt-8 inline-block rounded bg-[#4caf4f] px-7 py-3 text-sm text-white"
-        >
+      <section className="bg-brand-light px-5 py-16 text-center sm:px-8">
+        <SectionHeading
+          className="mx-auto max-w-3xl"
+          title={
+            <>
+              Pellentesque suscipit
+              <br />
+              fringilla libero eu.
+            </>
+          }
+        />
+        <Button href="#" className="mt-8">
           Get a Demo →
-        </a>
+        </Button>
       </section>
       <Footer />
     </main>

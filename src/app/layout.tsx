@@ -12,13 +12,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// ✅ 1. Metadata diaktifkan untuk SEO Landing Page Anda
 export const metadata: Metadata = {
   title: "Nexcent - Lessons and Insights from 8 Years",
   description: "Manage your entire community in a single system with Nexcent.",
 };
 
-// ✅ 2. Tipe data props disesuaikan menggunakan React.ReactNode
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -1,7 +1,12 @@
-import { EventIcon, MembersIcon, NetworkIcon, PaymentIcon } from "./icons";
+import {
+  EventIcon,
+  MembersIcon,
+  NetworkIcon,
+  PaymentIcon,
+} from "@/components/icons";
 import type { ComponentType } from "react";
 
-const stats: {
+const STATS: {
   Icon: ComponentType<{ className?: string }>;
   number: string;
   label: string;
@@ -14,27 +19,27 @@ const stats: {
 
 export default function Stats() {
   return (
-    <section className="bg-[#f5f7fa] px-5 py-16 sm:px-8">
+    <section className="bg-brand-light px-5 py-16 sm:px-8">
       <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2">
         <div>
-          <h2 className="text-3xl font-semibold leading-tight text-[#4d4d4d]">
+          <h2 className="text-3xl font-semibold leading-tight text-brand-dark">
             Helping a local
             <br />
-            <span className="text-[#4caf4f]">business reinvent itself</span>
+            <span className="text-brand-primary">business reinvent itself</span>
           </h2>
-          <p className="mt-2 text-sm text-[#18191f]">
+          <p className="mt-2 text-sm text-brand-dark">
             We reached here with our hard work and dedication
           </p>
         </div>
         <div className="grid grid-cols-2 gap-x-7 gap-y-8 sm:gap-x-14">
-          {stats.map(({ Icon, number, label }) => (
+          {STATS.map(({ Icon, number, label }) => (
             <div key={label} className="flex items-center gap-3">
-              <Icon className="h-10 w-10 shrink-0 text-[#4caf4f]" />
+              <Icon className="h-10 w-10 shrink-0 text-brand-primary" />
               <div>
-                <p className="text-xl font-bold leading-none text-[#4d4d4d]">
+                <p className="text-xl font-bold leading-none text-brand-dark">
                   {number}
                 </p>
-                <p className="mt-1 text-sm text-[#717171]">{label}</p>
+                <p className="mt-1 text-sm text-brand-grey">{label}</p>
               </div>
             </div>
           ))}
