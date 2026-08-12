@@ -1,69 +1,90 @@
 import Image from "next/image";
+import Blog from "@/components/blog";
+import Services from "@/components/clients";
+import Footer from "@/components/footer";
+import Hero from "@/components/hero";
+import Navbar from "@/components/navbar";
+import Stats from "@/components/stats";
+import Testimonial from "@/components/testimonial";
+
+const copy =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet justo ipsum. Sed accumsan quam vitae est varius fringilla. Pellentesque placerat vestibulum lorem sed porta.";
+
+function InfoBlock({
+  image,
+  title,
+  flip = false,
+}: {
+  image: string;
+  title: string;
+  flip?: boolean;
+}) {
+  return (
+    <section id={flip ? "feature" : ""} className="px-5 py-16 sm:px-8">
+      <div
+        className={`mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2 ${flip ? "" : ""}`}
+      >
+        <div className={flip ? "md:order-2" : ""}>
+          <Image
+            src={image}
+            alt="Nexcent feature illustration"
+            width={480}
+            height={360}
+            className="mx-auto h-auto w-full max-w-sm"
+          />
+        </div>
+        <div className={flip ? "md:order-1" : ""}>
+          <h2 className="max-w-md text-3xl font-semibold leading-tight text-[#4d4d4d]">
+            {title}
+          </h2>
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-[#717171]">
+            {copy} Nullam mattis tristique iaculis. Nullam pulvinar sit amet
+            risus pretium auctor.
+          </p>
+          <a
+            href="#"
+            className="mt-7 inline-block rounded bg-[#4caf4f] px-6 py-3 text-sm text-white"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="min-h-screen bg-white text-[#263238]">
+      <Navbar />
+      <Hero />
+      <Services />
+      <InfoBlock
+        image="/content.png"
+        title="The unseen of spending three years at Pixelgrade"
+      />
+      <Stats />
+      <InfoBlock
+        image="/content2.png"
+        title="How to design your site footer like we did"
+        flip
+      />
+      <Testimonial />
+      <Blog />
+      <section className="bg-[#f5f7fa] px-5 py-16 text-center sm:px-8">
+        <h2 className="mx-auto max-w-3xl text-4xl font-semibold leading-tight text-[#263238] sm:text-5xl">
+          Pellentesque suscipit
+          <br />
+          fringilla libero eu.
+        </h2>
+        <a
+          href="#"
+          className="mt-8 inline-block rounded bg-[#4caf4f] px-7 py-3 text-sm text-white"
+        >
+          Get a Demo →
+        </a>
+      </section>
+      <Footer />
+    </main>
   );
 }
