@@ -38,7 +38,7 @@ export default function Home() {
       <section className="bg-brand-light px-5 py-16 text-center sm:px-8">
         <SectionHeading
           className="mx-auto max-w-3xl font"
-          titleClassName="text-[64px] leading-[76px] text-gray-800 md:text-[54px] md:leading-[66px]"
+          titleClassName="text-3xl leading-snug sm:text-4xl md:text-5xl lg:text-[64px] lg:leading-[76px] text-gray-800"
           title={
             <>
               Pellentesque suscipit
