@@ -21,7 +21,7 @@ const STATS: {
     label: "Event Bookings",
   },
   {
-    icon: "/icons/statIconPayment.svg",
+    icon: "/icons/statiIconPayment.svg",
     number: "1,926,436",
     label: "Payments",
   },
