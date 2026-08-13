@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { SocialIcon } from "@/components/icons";
+import { FaInstagram, FaDribbble, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Send } from "lucide-react";
 
 const COMPANY_LINKS = [
   "About us",
@@ -17,7 +18,12 @@ const SUPPORT_LINKS = [
   "Status",
 ];
 
-const SOCIAL_TYPES = ["instagram", "dribbble", "twitter", "youtube"] as const;
+const SOCIAL_ICONS = [
+  { icon: FaInstagram, label: "Instagram" },
+  { icon: FaDribbble, label: "Dribbble" },
+  { icon: FaTwitter, label: "Twitter" },
+  { icon: FaYoutube, label: "YouTube" },
+];
 
 export default function Footer() {
   return (
@@ -25,11 +31,11 @@ export default function Footer() {
       <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_.7fr_.7fr_1fr]">
         <div>
           <Image
-            src="/icons/Logo-header.png"
+            src="/icons/Logo-footer.png"
             alt="Nexcent"
             width={154}
             height={32}
-            className="h-7 w-auto brightness-0 invert"
+            className="h-7 w-auto"
           />
           <p className="mt-8 text-xs leading-6 text-slate-300">
             Copyright © 2020 Nexcent ltd.
@@ -37,14 +43,14 @@ export default function Footer() {
             All rights reserved
           </p>
           <div className="mt-8 flex gap-3 text-white">
-            {SOCIAL_TYPES.map((type) => (
+            {SOCIAL_ICONS.map(({ icon: Icon, label }) => (
               <a
-                key={type}
+                key={label}
                 href="#"
-                aria-label={type}
+                aria-label={label}
                 className="rounded-full bg-white/10 p-2 transition hover:bg-white/20"
               >
-                <SocialIcon type={type} className="h-4 w-4" />
+                <Icon className="h-4 w-4" />
               </a>
             ))}
           </div>
@@ -63,7 +69,7 @@ export default function Footer() {
               className="min-w-0 flex-1 bg-transparent px-3 py-3 text-xs outline-none placeholder:text-slate-300"
             />
             <button aria-label="Send email" type="submit">
-              ➤
+              <Send className="h-4 w-4" strokeWidth={2} />
             </button>
           </form>
         </div>

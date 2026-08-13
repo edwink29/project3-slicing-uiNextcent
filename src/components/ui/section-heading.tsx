@@ -3,18 +3,15 @@ type SectionHeadingProps = {
   subtitle?: React.ReactNode;
   align?: "left" | "center";
   className?: string;
+  titleClassName?: string;
 };
 
-/**
- * Shared title + subtitle block used by every landing page section, so
- * heading styles (size, color, spacing) stay driven by design tokens
- * instead of being re-typed per component.
- */
 export function SectionHeading({
   title,
   subtitle,
   align = "center",
   className = "",
+  titleClassName = "",
 }: SectionHeadingProps) {
   return (
     <div
@@ -22,7 +19,14 @@ export function SectionHeading({
         .filter(Boolean)
         .join(" ")}
     >
-      <h2 className="text-3xl font-semibold leading-tight text-brand-dark">
+      <h2
+        className={[
+          "font-semibold text-brand-dark",
+          titleClassName || "text-3xl leading-tight",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      >
         {title}
       </h2>
       {subtitle && (

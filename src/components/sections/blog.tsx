@@ -19,7 +19,10 @@ const POSTS = [
 
 export default function Blog() {
   return (
-    <section id="product" className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
+    <section
+      id="product"
+      className="mx-auto max-w-6xl px-5 py-16 sm:px-8 scroll-mt-20"
+    >
       <SectionHeading
         className="mx-auto max-w-2xl"
         title="Caring is the new marketing"

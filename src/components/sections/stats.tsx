@@ -1,20 +1,30 @@
-import {
-  EventIcon,
-  MembersIcon,
-  NetworkIcon,
-  PaymentIcon,
-} from "@/components/icons";
-import type { ComponentType } from "react";
+import Image from "next/image";
 
 const STATS: {
-  Icon: ComponentType<{ className?: string }>;
+  icon: string;
   number: string;
   label: string;
 }[] = [
-  { Icon: MembersIcon, number: "2,245,341", label: "Members" },
-  { Icon: NetworkIcon, number: "46,328", label: "Clubs" },
-  { Icon: EventIcon, number: "828,867", label: "Event Bookings" },
-  { Icon: PaymentIcon, number: "1,926,436", label: "Payments" },
+  {
+    icon: "/icons/statIconMember.svg",
+    number: "2,245,341",
+    label: "Members",
+  },
+  {
+    icon: "/icons/CardIconHand.png",
+    number: "46,328",
+    label: "Clubs",
+  },
+  {
+    icon: "/icons/statIconClic.svg",
+    number: "828,867",
+    label: "Event Bookings",
+  },
+  {
+    icon: "/icons/statIconPayment.svg",
+    number: "1,926,436",
+    label: "Payments",
+  },
 ];
 
 export default function Stats() {
@@ -32,9 +42,15 @@ export default function Stats() {
           </p>
         </div>
         <div className="grid grid-cols-2 gap-x-7 gap-y-8 sm:gap-x-14">
-          {STATS.map(({ Icon, number, label }) => (
+          {STATS.map(({ icon, number, label }) => (
             <div key={label} className="flex items-center gap-3">
-              <Icon className="h-10 w-10 shrink-0 text-brand-primary" />
+              <Image
+                src={icon}
+                alt={label}
+                width={48}
+                height={48}
+                className="h-12 w-12 shrink-0"
+              />
               <div>
                 <p className="text-xl font-bold leading-none text-brand-dark">
                   {number}
