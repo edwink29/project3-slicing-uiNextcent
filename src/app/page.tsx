@@ -22,6 +22,7 @@ export default function Home() {
         title="The unseen of spending three years at Pixelgrade"
         imageWidth={422}
         imageHeight={433}
+        priority
       />
       <Stats />
       <InfoBlock
@@ -29,8 +30,8 @@ export default function Home() {
         image="/images/imageContent2.png"
         alt="Nexcent site footer design illustration"
         title="How to design your site footer like we did"
-        imageWidth={441}
-        imageHeight={433}
+        imageWidth={380}
+        imageHeight={500}
       />
       <Testimonial />
       <Blog />

@@ -26,7 +26,7 @@ export default function Hero() {
           alt="Nexcent platform illustration"
           width={391}
           height={407}
-          className="mx-auto block" // Hapus class w-full, h-auto, max-w-md
+          className="mx-auto block"
           priority
         />
       </div>

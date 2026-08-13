@@ -43,6 +43,7 @@ export default function Blog() {
               alt={title}
               width={400}
               height={286}
+              priority
               className="h-64 w-full rounded-lg object-cover"
             />
             <div className="absolute bottom-0 left-5 right-5 rounded-lg bg-brand-light p-5 text-center shadow-lg">

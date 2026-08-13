@@ -12,6 +12,7 @@ interface InfoBlockProps {
   id?: string;
   imageWidth?: number;
   imageHeight?: number;
+  priority?: boolean;
 }
 
 export default function InfoBlock({
@@ -21,6 +22,7 @@ export default function InfoBlock({
   id,
   imageWidth = 422,
   imageHeight = 433,
+  priority = false,
 }: InfoBlockProps) {
   return (
     <section id={id} className="scroll-mt-20 px-5 py-16 sm:px-8">
@@ -31,8 +33,13 @@ export default function InfoBlock({
             alt={alt}
             width={imageWidth}
             height={imageHeight}
-            className="mx-auto h-auto w-full object-cover"
-            style={{ maxWidth: `${imageWidth}px` }}
+            priority={priority}
+            className="mx-auto object-cover"
+            style={{
+              width: "100%",
+              height: "auto",
+              maxWidth: imageWidth,
+            }}
           />
         </div>
         <div>

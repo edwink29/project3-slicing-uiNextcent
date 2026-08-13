@@ -21,6 +21,7 @@ export default function Testimonial() {
           alt="Tesla logo"
           width={326}
           height={326}
+          priority
           className="mx-auto h-[326px] w-[326px] rounded-lg object-cover"
         />
         <div>

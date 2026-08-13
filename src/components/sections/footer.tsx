@@ -27,7 +27,10 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
   return (
-    <footer id="faq" className="bg-brand-ink px-5 py-14 text-white sm:px-8">
+    <footer
+      id="faq"
+      className="bg-brand-ink px-5 py-14 text-white sm:px-8 scroll-mt-20"
+    >
       <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.5fr_.7fr_.7fr_1fr]">
         <div>
           <Image
